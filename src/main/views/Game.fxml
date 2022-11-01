@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Text?>
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="main.controllers.GameController">
+    <StackPane>
+        <VBox alignment="TOP_CENTER">
+            <HBox alignment="CENTER">
+                <Label text="Your color of chip: "/>
+                <Text fx:id="ChipColor"/>
+            </HBox>
+            <HBox alignment="CENTER">
+                <Label text="Whose move: "/>
+                <Text fx:id="CurrentMoveName"/>
+            </HBox>
+            <HBox alignment="CENTER">
+                <Label text="Counter of moves: "/>
+                <Text fx:id="CurrentMoveCounter"/>
+            </HBox>
+        </VBox>
+
+        <VBox alignment="BOTTOM_CENTER">
+            <GridPane fx:id="GameField" alignment="CENTER"/>
+        </VBox>
+    </StackPane>
+</StackPane>
