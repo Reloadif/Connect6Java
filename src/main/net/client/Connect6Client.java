@@ -59,6 +59,10 @@ public class Connect6Client {
             if (packet.command == CommandType.DISCONNECT) {
                 out.writeObject(packet);
 
+                while (reader.runnable) {
+                    Thread.sleep(20);
+                }
+
                 out.close();
                 in.close();
                 socket.close();
@@ -69,11 +73,13 @@ public class Connect6Client {
 
         } catch (IOException ioe) {
             ioe.printStackTrace();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 
     private class Reader extends Thread {
-        private boolean runnable = true;
+        public boolean runnable = true;
 
         @Override
         public void run() {
@@ -100,7 +106,9 @@ public class Connect6Client {
                 switch (packet.command) {
                     case PLACE_CHIP -> serverPlaceChipTcpEvent.invoke(packet);
                     case FINISH_GAME -> serverFinishGameTcpEvent.invoke(packet);
-                    case DISCONNECT -> runnable = false;
+                    case DISCONNECT ->  {
+                        runnable = false;
+                    }
                 }
             }
         }

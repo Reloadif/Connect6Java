@@ -128,7 +128,7 @@ public class GameController {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information");
             alert.setHeaderText("Game is finished");
-            alert.setContentText(chipColor.toString().contains(parameter.winnerChipColor) ? "You are winner!" : "You are loser :(");
+            alert.setContentText(chipColor.toString().contains(parameter.winnerChipColor) ? "You are a winner!" : "You are a loser :(");
             alert.showAndWait();
 
             MainApplication.connect6Client.sendRequest(new CommonPacket(

@@ -7,13 +7,10 @@ import main.MainApplication;
 
 public class LauncherController {
     @FXML
-    private Button StartButton;
+    public Button StartButton;
 
     @FXML
     public void initialize() {
-        StartButton.setOnAction(event -> {
-            MainApplication.setSceneParent("Game");
-            StartButton.setDisable(true);
-        });
+        StartButton.setOnAction(event -> MainApplication.setSceneParent("Game"));
     }
 }
